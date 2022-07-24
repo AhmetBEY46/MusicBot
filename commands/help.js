@@ -18,7 +18,7 @@ const embed = new EmbedBuilder()
     { name: `Bot Commands`, value: commands.map(x => `\`/${x.name}\``).join(' | ') }
 ])
 .setTimestamp()
-.setFooter({text: `Code Share - by Umut Bayraktar ❤️` })
+.setFooter({text: `AhmetBEY ❤️` })
 interaction.reply({ embeds: [embed] }).catch(e => { })
 },
 };
