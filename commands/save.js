@@ -21,7 +21,7 @@ const embed = new EmbedBuilder()
 { name: `Requested By`, value: `${queue.current.requestedBy}` }
 ])
 .setTimestamp()
-.setFooter({text: `Code Share - by Umut Bayraktar ❤️` })
+.setFooter({text: `AhmetBEY ❤️` })
 interaction.user.send({ embeds: [embed] }).then(() => {
 interaction.reply({ content: `I sent the name of the music via private message. ✅`, ephemeral: true }).catch(e => { })
 }).catch(error => {
