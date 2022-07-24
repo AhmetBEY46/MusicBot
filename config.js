@@ -1,6 +1,6 @@
 module.exports = {
 TOKEN: '', //write your discord bot token
-status: '❤️ Umut Bayraktar', 
+status: '❤️ AhmetBEY', 
 commandsDir: './commands', //Please don't touch
         
 opt: {
