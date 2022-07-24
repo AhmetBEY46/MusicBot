@@ -1,6 +1,6 @@
 module.exports = {
 name: "back",
-description: "Plays the previous music again.",
+description: "Önceki müziği tekrar çalar.",
 permissions: "0x0000000000000800",
 options: [],
 run: async (client, interaction) => {
@@ -13,6 +13,6 @@ if (!queue.previousTracks[1]) return interaction.reply({ content: `There was no 
 
 await queue.back();
 
-interaction.reply({ content: `Previous music started playing... ✅` }).catch(e => { })
+interaction.reply({ content: `Önceki müzik çalmaya başladı... ✅` }).catch(e => { })
 },
 };
