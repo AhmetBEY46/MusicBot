@@ -25,7 +25,7 @@ const trackDuration = timestamp.progress == 'Forever' ? 'Endless (Live)' : track
 embed.setDescription(`Audio **%${queue.volume}**\nDuration **${trackDuration}**\nURL: ${track.url}\nLoop Mode **${methods[queue.repeatMode]}**\n${track. requestedBy}`);
 
 embed.setTimestamp();
-embed.setFooter({text: `Code Share - by Umut Bayraktar ❤️` })
+embed.setFooter({text: `AhmetBEY ❤️` })
 
 const saveButton = new ButtonBuilder();
 saveButton.setLabel('Save Song');
