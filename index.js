@@ -53,21 +53,22 @@ player.on('trackStart', (queue, track) => {
 if(queue){
 if (!client.config.opt.loopMessage && queue.repeatMode !== 0) return;
 if(queue.metadata){
-queue.metadata.send({ content: `🎵 Music started playing: **${track.title}** -> Channel: **${queue.connection.channel.name}** 🎧` }).catch(e => { })
+queue.metadata.send({ content: `🎵 Müzik çalmaya başladı: **${track.title}** -> Channel: **${queue.connection.channel.name}** 🎧` }).catch(e => { })
 }}
 });
 
 player.on('trackAdd', (queue, track) => {
 if(queue){
 if(queue.metadata){
-queue.metadata.send({ content: `**${track.title}** added to playlist. ✅` }).catch(e => { })
+queue.metadata.send({ content: `**${track.title}** oynatma listesine eklendi. ✅` }).catch(e => { })
 }}
 });
 
 player.on('channelEmpty', (queue) => {
 if(queue){
 if(queue.metadata){
-queue.metadata.send({ content: 'I left the audio channel because there is no one on my audio channel. ❌' }).catch(e => { })
+queue.metadata.send({ content: 'queue.metadata.send({ content: 'Ses kanalımda kimse olmadığı için ses kanalından ayrıldım. ❌' }).catch(e => { })
+ ❌' }).catch(e => { })
 }}
 });
 
@@ -79,14 +80,14 @@ if(queue.connection) queue.connection.disconnect();
 }, client.config.opt.voiceConfig.leaveOnTimer.time);
 }
 if(queue.metadata){
-queue.metadata.send({ content: 'All play queue finished, I think you can listen to some more music. ✅' }).catch(e => { })
+queue.metadata.send({ content: 'Tüm çalma sırası bitti, sanırım biraz daha müzik dinleyebilirsin. ✅' }).catch(e => { })
 }}
 });
 
 player.on("error",  (queue, error) => {
 if(queue){
 if(queue.metadata){
-queue.metadata.send({ content: 'Im having trouble trying to connect to the voice channel. ❌ | `'+error+"`" }).catch(e => { })
+queue.metadata.send({ content: 'Ses kanalına bağlanmaya çalışırken sorun yaşıyorum. ❌ | `'+error+"`" }).catch(e => { })
 }}
 })
 
