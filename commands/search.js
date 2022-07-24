@@ -2,24 +2,24 @@ const { EmbedBuilder, ApplicationCommandOptionType } = require('discord.js');
 const { QueryType } = require('discord-player');
 module.exports = {
   name: "search",
-  description: "Used for your music search",
+  description: "Müzik aramanız için kullanılır",
   permissions: "0x0000000000000800",
   options: [{
     name: 'name',
-    description: 'Type the name of the music you want to play.',
+    description: 'Çalmak istediğiniz müziğin adını yazın.',
     type: ApplicationCommandOptionType.String,
     required: true
   }],
   run: async (client, interaction) => {
 
     const name = interaction.options.getString('name')
-    if (!name) return interaction.reply({ content: `Please enter a valid song name. ❌`, ephemeral: true }).catch(e => { })
+    if (!name) return interaction.reply({ content: `Lütfen geçerli bir şarkı adı girin. ❌`, ephemeral: true }).catch(e => { })
 
     const res = await client.player.search(name, {
       requestedBy: interaction.member,
       searchEngine: QueryType.AUTO
     });
-    if (!res || !res.tracks.length) return interaction.reply({ content: `No search results found. ❌`, ephemeral: true }).catch(e => { })
+    if (!res || !res.tracks.length) return interaction.reply({ content: `Arama Sonucu Bulunamadı. ❌`, ephemeral: true }).catch(e => { })
 
     const queue = await client.player.createQueue(interaction.guild, {
       leaveOnEnd: client.config.opt.voiceConfig.leaveOnEnd,
@@ -37,7 +37,7 @@ module.exports = {
     embed.setDescription(`${maxTracks.map((track, i) => `**${i + 1}**. ${track.title} | \`${track.author}\``).join('\n')}\n\nChoose a song from **1** to **${maxTracks.length}** write send or write **cancel** and cancel selection.⬇️`)
 
     embed.setTimestamp();
-    embed.setFooter({ text: `Code Share - by Umut Bayraktar ❤️` })
+    embed.setFooter({ text: `AhmetBEY ❤️` })
 
     interaction.reply({ embeds: [embed] }).catch(e => { })
 
@@ -63,7 +63,7 @@ module.exports = {
         if (!queue.connection) await queue.connect(interaction.member.voice.channelId);
       } catch {
         await client.player.deleteQueue(interaction.guild.id);
-        return interaction.reply({ content: `I can't join audio channel. ❌`, ephemeral: true }).catch(e => { })
+        return interaction.reply({ content: `ses kanalına katılamıyorum. ❌`, ephemeral: true }).catch(e => { })
       }
 
       await interaction.reply({ content: `Loading your music call. 🎧` }).catch(e => { })
